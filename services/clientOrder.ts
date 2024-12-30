@@ -1,53 +1,53 @@
-'use server';
-import { db } from "@/lib/db";
+// 'use server';
+// import { db } from "@/lib/db";
 
 
-export const getBookletId = async (email:string) => {
+// export const getBookletId = async (email:string) => {
 
-    try {
+//     try {
         
 
-        const getClientID = await getClientByEmail(email);
-        const clientID = getClientID?.ID
+//         const getClientID = await getClientByEmail(email);
+//         const clientID = getClientID?.ID
 
 
-        const getBooklet = db.clients_Orders.findMany({
-            where:{
-                Client_ID: clientID,
-            }
-        });
+//         const getBooklet = db.clients_Orders.findMany({
+//             where:{
+//                 Client_ID: clientID,
+//             }
+//         });
 
         
 
-        return getBooklet;
+//         return getBooklet;
 
 
-    } catch (error) {
-        throw error;
+//     } catch (error) {
+//         throw error;
 
-    }
-
-
-}
+//     }
 
 
-export const getClientByEmail = async (email:string) => {
+// }
 
-    try {
+
+// export const getClientByEmail = async (email:string) => {
+
+//     try {
         
-        const getClientId = db.clients.findUnique({
-            where:{
-                Email_Adress: email,
-            }
-        });
+//         const getClientId = db.clients.findUnique({
+//             where:{
+//                 Email_Adress: email,
+//             }
+//         });
 
-        return getClientId;
-
-
-    } catch (error) {
-        throw error;
-
-    }
+//         return getClientId;
 
 
-}
+//     } catch (error) {
+//         throw error;
+
+//     }
+
+
+// }

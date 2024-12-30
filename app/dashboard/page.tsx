@@ -1,31 +1,30 @@
 "use client";
-import { getBookletId } from "@/services/clientOrder";
 import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 
 type ClientOrderTwo = Record<string, unknown>;
 
 export default function DashboardPage() {
-  const [clientOrder, setClientOrder] = useState<ClientOrderTwo[] | null>(null);
+  //const [clientOrder, setClientOrder] = useState<ClientOrderTwo[] | null>(null);
   const { data: session } = useSession(); // Fetch session data in client-side
 
-  useEffect(() => {
-    const fetchClientOrder = async () => {
-      if (session?.user?.email) {
-        // Check if email exists
-        const order: ClientOrderTwo[] = await getBookletId(session.user.email); // Pass session email
-        setClientOrder(order);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchClientOrder = async () => {
+  //     if (session?.user?.email) {
+  //       // Check if email exists
+  //       const order: ClientOrderTwo[] = await getBookletId(session.user.email); // Pass session email
+  //       setClientOrder(order);
+  //     }
+  //   };
 
-    fetchClientOrder();
-  }, [session]);
+  //   fetchClientOrder();
+  // }, [session]);
 
   return (
     <div>
       <h1 className="text-3xl font-bold mb-6">Booklet IDs</h1>
       <ul className="space-y-4">
-        {clientOrder &&
+        {/* {clientOrder &&
           clientOrder.map((items: ClientOrderTwo) => (
             <li
               key={items["Order_ID"] as number}
@@ -36,7 +35,7 @@ export default function DashboardPage() {
                 Convert DGC&apos;s to tokens
               </button>
             </li>
-          ))}
+          ))} */}
       </ul>
     </div>
   );

@@ -152,7 +152,7 @@ model Clients {
   ID               Int       @id @default(autoincrement())
   First_Name       String?   @db.VarChar(20)
   Last_Name        String?   @db.VarChar(30)
-  Password         String?   @default("8cb2237d0679ca88db6464eac60da96345513964") @db.VarChar(50)
+  Password         String    @default("8cb2237d0679ca88db6464eac60da96345513964") @db.VarChar(50)
   House_Number     String?   @db.VarChar(10)
   Street           String?   @db.VarChar(30)
   City             String?   @db.VarChar(20)
@@ -163,11 +163,11 @@ model Clients {
   Fax              String?   @db.VarChar(20)
   Office_Phone     String?   @db.VarChar(20)
   Office_Fax       String?   @db.VarChar(20)
-  Email_Adress     String?   @unique @db.VarChar(35)
+  Email_Adress     String?   @db.VarChar(35)
   Status           Int?
-  Client_Status    Int?      @default(0)
+  Client_Status    Int       @default(0)
   SI_Number        String?   @db.VarChar(9)
-  Source           Int?      @default(0) @db.TinyInt
+  Source           Int       @default(0) @db.TinyInt
   Verify_Status    Int?      @default(0)
   verify_date      DateTime? @db.DateTime(0)
   affiliate_id     Int?      @default(0)
@@ -910,4 +910,12 @@ model track_url_data {
   Client_ID    Int?
   Order_ID     Int?
   created_date DateTime @default(now()) @db.DateTime(0)
+}
+
+model tokenSysClients {
+  id           Int      @id @default(autoincrement())
+  Client_Name  String   @db.VarChar(255)
+  Client_Email String   @unique @db.VarChar(255)
+  Password     String   @db.VarChar(255)
+  created_at   DateTime @default(now()) @db.DateTime(0)
 }
