@@ -1,13 +1,13 @@
 "use client";
-import { getBookletId } from "@/services/clientOrder";
+//import { getBookletId } from "@/services/clientOrder";
 import React, { useEffect } from "react";
 import { signOut } from "@/auth";
 
 const Dashboard = () => {
-  useEffect(() => {
-    const getClientOrder = getBookletId("fahad@justicetrading.com");
-    console.log(getClientOrder);
-  });
+  // useEffect(() => {
+  //   const getClientOrder = getBookletId("fahad@justicetrading.com");
+  //   console.log(getClientOrder);
+  // });
 
   return (
     <div>

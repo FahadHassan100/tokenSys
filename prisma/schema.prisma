@@ -913,9 +913,10 @@ model track_url_data {
 }
 
 model tokenSysClients {
-  id           Int      @id @default(autoincrement())
-  Client_Name  String   @db.VarChar(255)
-  Client_Email String   @unique @db.VarChar(255)
-  Password     String   @db.VarChar(255)
-  created_at   DateTime @default(now()) @db.DateTime(0)
+  id              Int      @id @default(autoincrement())
+  Client_Name     String   @db.VarChar(255)
+  Client_Email    String   @unique @db.VarChar(255)
+  Password        String   @db.VarChar(255)
+  transfer_status Int?
+  created_at      DateTime @default(now()) @db.DateTime(0)
 }

@@ -26,6 +26,7 @@ export const { handlers: {GET, POST}, signIn, signOut, auth } = NextAuth({
           token.id = user.ID;
           token.email = user.Client_Email;
           token.ClientName = user.Client_Name;
+          token.transferStatus = user.transfer_status;
         }
         return token;
       },
@@ -36,6 +37,7 @@ export const { handlers: {GET, POST}, signIn, signOut, auth } = NextAuth({
           session.user.id = token.id;
           session.user.Client_Email = token.email;
           session.user.Client_Name = token.ClientName;
+          session.user.transfer_status = token.transferStatus;
           //session.user.lastName = token.lastName;
           //session.user.role = token.role; // Example field
         }
