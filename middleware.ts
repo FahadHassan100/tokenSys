@@ -23,9 +23,9 @@ export default auth((req) => {
 
     // console.log(`Route ${pathname} is protected: ${isProtectedRoute(pathname)}`);
 
-    if (!isLoggedIn && !isPublicRoutes) {
-        return Response.redirect(new URL("/login", nextUrl));
-      }
+    // if (!isLoggedIn && !isPublicRoutes) {
+    //     return Response.redirect(new URL("/tokensys/login", nextUrl));
+    //   }
 
 });
 

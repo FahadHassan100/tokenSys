@@ -1,4 +1,4 @@
-export const publicRoutes: string[] = ["/verify","/login",'/register'];
+export const publicRoutes: string[] = ["/verify","/tokensys/login",'/register'];
 
 export const authRoutes: string[] = [
   "/error",
@@ -6,9 +6,9 @@ export const authRoutes: string[] = [
   "/reset",
   "/new-password",
   "/two-factor",
-  "/"
+  "/tokensys"
 ];
 
-export const apiAuthPrefix: string = "/api/auth";
+export const apiAuthPrefix: string = "/tokensys/api/auth";
 
-export const DEFAULT_LOGIN_REDIRECT: string = "/login";
+export const DEFAULT_LOGIN_REDIRECT: string = "/tokensys/login";

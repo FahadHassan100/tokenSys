@@ -20,6 +20,7 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+
 # Generate Prisma client with the correct binary
 RUN npx prisma generate
 
@@ -44,9 +45,21 @@ RUN apk add --no-cache openssl
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
+
+
 # Copy build artifacts
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+# Copy the public directory to serve static assets
+COPY --from=builder --chown=nextjs:nodejs /app/public ./public
+
+# Copy SSL files
+# COPY ./ssl/key.pem /app/ssl/key.pem
+# COPY ./ssl/cert.pem /app/ssl/cert.pem
+
+# Copy the custom server
+# COPY server.js /app/server.js
 
 USER nextjs
 
